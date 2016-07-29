@@ -1,4 +1,4 @@
-System.register(['angular2/core', './course.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './course.service', './autogrow.directive', './favstar.directive'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, course_service_1;
+    var core_1, course_service_1, autogrow_directive_1, favstar_directive_1;
     var CoursesComponent;
     return {
         setters:[
@@ -19,6 +19,12 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
             },
             function (course_service_1_1) {
                 course_service_1 = course_service_1_1;
+            },
+            function (autogrow_directive_1_1) {
+                autogrow_directive_1 = autogrow_directive_1_1;
+            },
+            function (favstar_directive_1_1) {
+                favstar_directive_1 = favstar_directive_1_1;
             }],
         execute: function() {
             CoursesComponent = (function () {
@@ -29,8 +35,9 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'courses',
-                        template: "\n                 <h2>My First Course</h2>\n                 {{text}}\n                 <ul>\n                    <li *ngFor= \"#course of courses\"> \n                        {{course}}\n                    </li>\n                 </ul>\n              ",
-                        providers: [course_service_1.CourseService]
+                        template: "\n                 <h2>My First Course</h2>\n                 <input autoGrow />\n                 <br>\n                 {{text}}\n                 <ul>\n                    <li *ngFor= \"let course of courses\"> \n                        {{course}}\n                        <i  class=\"glyphicon glyphicon-star-empty\" favstar></i>\n                    </li>\n                 </ul>\n              ",
+                        providers: [course_service_1.CourseService],
+                        directives: [autogrow_directive_1.AutoGrowDirective, favstar_directive_1.FavStar]
                     }), 
                     __metadata('design:paramtypes', [course_service_1.CourseService])
                 ], CoursesComponent);
